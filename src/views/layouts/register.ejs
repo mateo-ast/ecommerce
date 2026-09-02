@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .register-section {
+        padding: 60px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: calc(100vh - 220px);
+        background: #f6f7fb;
+      }
+
+      .auth-card {
+        background: #fff;
+        padding: 32px;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(26, 26, 46, 0.06);
+        width: 100%;
+        max-width: 420px;
+      }
+
+      .auth-title {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #1a1a2e;
+        text-align: center;
+        margin-bottom: 8px;
+      }
+
+      .auth-sub {
+        color: #64657a;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .auth-card input[type="text"],
+      .auth-card input[type="email"],
+      .auth-card input[type="password"] {
+        width: 90%;
+        padding: 12px 14px;
+        border: 1px solid #e6e7ef;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        font-size: 1rem;
+        outline: none;
+        transition: box-shadow 0.15s, border-color 0.15s;
+      }
+
+      .auth-card input:focus {
+        border-color: #6c63ff;
+        box-shadow: 0 4px 12px rgba(108, 99, 255, 0.08);
+      }
+
+      .auth-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 12px;
+      }
+
+      .btn-primary {
+        background: #6c63ff;
+        color: #fff;
+        border: none;
+        padding: 10px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 700;
+        flex: 1;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: #6c63ff;
+        border: 1px solid #e6e7ef;
+        padding: 10px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        flex: 1;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .auth-footer {
+        text-align: center;
+        margin-top: 14px;
+        color: #64657a;
+        font-size: 0.95rem;
+      }
+
+      a.inline-link {
+        color: #6c63ff;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      @media (max-width: 640px) {
+        .register-section {
+          padding: 40px 12px;
+        }
+
+        .auth-card {
+          padding: 20px;
+        }
+
+        .auth-title {
+          font-size: 1.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('../partials/header') %>
+    <main class="register-section">
+      <section class="auth-card" aria-labelledby="register-title">
+        <h1 id="register-title" class="auth-title">Crea tu cuenta</h1>
+        <p class="auth-sub">Regístrate para acceder a ofertas exclusivas y gestionar tus pedidos.</p>
+        <form action="/register" method="POST">
+          <input name="name" type="text" placeholder="Nombre completo" required />
+          <input name="email" type="email" placeholder="Correo electrónico" required />
+          <input name="password" type="password" placeholder="Contraseña" required />
+          <div class="auth-actions">
+            <button type="submit" class="btn-primary">Crear cuenta</button>
+            <a href="/login" class="btn-secondary" role="button">Iniciar sesión</a>
+          </div>
+        </form>
+        <p class="auth-footer">Al registrarte aceptas nuestros <a class="inline-link" href="/terms">Términos</a> y <a class="inline-link" href="/privacy">Política de privacidad</a>.</p>
+      </section>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>
