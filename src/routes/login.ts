@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 const loginRouter = Router();
 
-loginRouter.get('/login', (_req, res) => {
+loginRouter.get('/', (_req, res) => {
 	res.render('pages/login', {
 		title: 'Iniciar sesión',
 		auth: {
@@ -20,7 +20,7 @@ loginRouter.get('/login', (_req, res) => {
 	});
 });
 
-loginRouter.post('/login', (_req, res) => {
+loginRouter.post('/', (_req, res) => {
 	res.redirect('/');
 });
 
