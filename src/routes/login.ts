@@ -12,6 +12,7 @@ loginRouter.get('/login', (_req, res) => {
 			intro: 'Ingresá tus datos para continuar.',
 			action: '/login',
 			submitLabel: 'Iniciar Sesión',
+			usernameLabel: 'Nombre de usuario',
 			usernameId: 'login-username',
 			passwordId: 'login-password',
 			backHref: '/',

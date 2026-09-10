@@ -1,3 +1,4 @@
+<% const isRegistration = typeof registration !== 'undefined' && registration; %>
 <section class="auth-section" aria-labelledby="<%= headingId %>">
   <div class="auth-card">
     <p class="eyebrow"><%= brand %></p>
@@ -6,12 +7,25 @@
 
     <form action="<%= action %>" method="post">
       <div class="form-field">
-        <label for="<%= usernameId %>">Nombre de usuario</label>
+        <% if (isRegistration) { %>
+          <label for="<%= nameId %>">Nombre</label>
+          <input
+            id="<%= nameId %>"
+            name="name"
+            type="text"
+            autocomplete="name"
+            required
+          />
+        <% } %>
+      </div>
+
+      <div class="form-field">
+        <label for="<%= usernameId %>"><%= usernameLabel %></label>
         <input
           id="<%= usernameId %>"
           name="username"
-          type="text"
-          autocomplete="username"
+          type="<%= isRegistration ? 'email' : 'text' %>"
+          autocomplete="<%= isRegistration ? 'email' : 'username' %>"
           required
         />
       </div>
@@ -22,13 +36,19 @@
           id="<%= passwordId %>"
           name="password"
           type="password"
-          autocomplete="current-password"
+          autocomplete="<%= isRegistration ? 'new-password' : 'current-password' %>"
           required
         />
       </div>
 
       <button class="button" type="submit"><%= submitLabel %></button>
     </form>
+
+    <% if (isRegistration) { %>
+      <p class="auth-links">
+        <a href="<%= secondaryHref %>"><%= secondaryLabel %></a>
+      </p>
+    <% } %>
 
     <a class="back-link" href="<%= backHref %>"><%= backLabel %></a>
   </div>
