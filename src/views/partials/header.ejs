@@ -1,6 +1,13 @@
 <header>
-  <nav>
-    <a href="/">Ecommerce</a>
-    <a href="/login">Iniciar sesión</a>
+  <nav class="top-nav" aria-label="Navegación principal">
+    <a href="/" class="brand-link">Ecommerce</a>
+    <div class="nav-actions">
+      <form class="nav-search" role="search" aria-label="Buscar productos">
+        <label class="sr-only" for="header-search">Buscar productos</label>
+        <input id="header-search" type="search" name="q" placeholder="Buscar" />
+      </form>
+      <a href="/cart" class="nav-link">Carrito</a>
+      <a href="/login" class="nav-link">Iniciar sesión</a>
+    </div>
   </nav>
 </header>
