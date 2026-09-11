@@ -19,7 +19,7 @@
 
             <div class="cart-item-info">
               <h2><%= item.name %></h2>
-              <p class="cart-item-price"><%= formatPoints(item.price) %> Puntos</p>
+              <p class="cart-item-price"><%= new Intl.NumberFormat('es-AR').format(item.price) %> puntos</p>
             </div>
 
             <div class="quantity-controls" aria-label="Cantidad de <%= item.name %>">
@@ -28,7 +28,7 @@
               <button type="button" aria-label="Aumentar cantidad de <%= item.name %>" class="qty-button increment" data-action="increment">+</button>
             </div>
 
-            <p class="item-total" aria-label="Total para <%= item.name %>"><%= formatPoints(item.price * item.quantity) %> Puntos</p>
+            <p class="item-total" aria-label="Total para <%= item.name %>"><%= new Intl.NumberFormat('es-AR').format(item.price * item.quantity) %> pts</p>
           </article>
         <% }) %>
       </section>
@@ -38,7 +38,7 @@
 
         <div class="summary-row">
           <span>Subtotal</span>
-          <strong id="subtotal-value"><%= subtotal %> Puntos</strong>
+          <strong id="subtotal-value"><%= subtotal %> pts</strong>
         </div>
 
         <div class="summary-row coupon-row">
@@ -48,12 +48,12 @@
 
         <div class="summary-row discount-row">
           <span>Descuento</span>
-          <strong id="discount-value">- <%= discount %> Puntos</strong>
+          <strong id="discount-value">- <%= discount %> pts</strong>
         </div>
 
         <div class="summary-row total-row">
           <span>Total</span>
-          <strong id="total-value"><%= total %> Puntos</strong>
+          <strong id="total-value"><%= total %> pts</strong>
         </div>
 
         <div class="cart-actions">
@@ -66,10 +66,7 @@
 </section>
 
 <script>
-  const formatPoints = (value) => new Intl.NumberFormat('es-AR', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(value);
+  const formatPoints = (value) => new Intl.NumberFormat('es-AR').format(value);
 
   const updateTotals = () => {
     const cartItems = document.querySelectorAll('.cart-item');
@@ -84,16 +81,16 @@
       const price = Number(item.dataset.price || 0);
       const quantity = Number(item.querySelector('.quantity-value')?.textContent || 0);
       const itemTotal = price * quantity;
-      item.querySelector('.item-total').textContent = `${formatPoints(itemTotal)} Puntos`;
+      item.querySelector('.item-total').textContent = `${formatPoints(itemTotal)} pts`;
       subtotal += itemTotal;
     });
 
     const discount = couponCode === 'SAVE10' ? Math.round(subtotal * 0.1) : 0;
     const total = subtotal - discount;
 
-    subtotalValue.textContent = `${formatPoints(subtotal)} Puntos`;
-    discountValue.textContent = `- ${formatPoints(discount)} Puntos`;
-    totalValue.textContent = `${formatPoints(total)} Puntos`;
+    subtotalValue.textContent = `${formatPoints(subtotal)} pts`;
+    discountValue.textContent = `- ${formatPoints(discount)} pts`;
+    totalValue.textContent = `${formatPoints(total)} pts`;
   };
 
   document.querySelectorAll('.qty-button').forEach((button) => {
