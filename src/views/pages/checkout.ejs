@@ -1,0 +1,85 @@
+<section class="checkout-section" aria-labelledby="<%= headingId %>">
+  <div class="checkout-shell">
+    <div class="checkout-card checkout-summary">
+      <p class="eyebrow"><%= brand %></p>
+      <h1 id="<%= headingId %>"><%= heading %></h1>
+      <p class="intro"><%= intro %></p>
+
+      <div class="order-preview">
+        <img
+          src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=900&q=80"
+          alt="<%= order.name %>"
+          class="order-preview-image"
+        />
+        <div class="order-preview-body">
+          <h2><%= order.name %></h2>
+          <p><%= order.description %></p>
+        </div>
+      </div>
+
+      <div class="order-totals">
+        <div class="order-line">
+          <span>Producto</span>
+          <strong>$<%= order.price.toFixed(2) %></strong>
+        </div>
+        <div class="order-line">
+          <span>Cantidad</span>
+          <strong><%= order.quantity %></strong>
+        </div>
+        <div class="order-line">
+          <span>Envío</span>
+          <strong>$<%= order.shipping.toFixed(2) %></strong>
+        </div>
+        <div class="order-line total">
+          <span>Total</span>
+          <strong>$<%= order.total.toFixed(2) %></strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="checkout-card checkout-form-card">
+      <form action="<%= action %>" method="post" class="checkout-form">
+        <div class="form-field">
+          <label for="checkout-name">Nombre completo</label>
+          <input id="checkout-name" name="name" type="text" autocomplete="name" required />
+        </div>
+
+        <div class="form-field">
+          <label for="checkout-email">Correo electrónico</label>
+          <input id="checkout-email" name="email" type="email" autocomplete="email" required />
+        </div>
+
+        <div class="form-field">
+          <label for="checkout-address">Dirección</label>
+          <input id="checkout-address" name="address" type="text" autocomplete="street-address" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="checkout-city">Ciudad</label>
+            <input id="checkout-city" name="city" type="text" autocomplete="address-level2" required />
+          </div>
+
+          <div class="form-field">
+            <label for="checkout-postal">Código postal</label>
+            <input id="checkout-postal" name="postal" type="text" autocomplete="postal-code" required />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="checkout-payment">Método de pago</label>
+          <select id="checkout-payment" name="payment" required>
+            <option value="">Seleccioná una opción</option>
+            <option value="tarjeta">Tarjeta de crédito</option>
+            <option value="transferencia">Transferencia bancaria</option>
+            <option value="mercadopago">MercadoPago</option>
+          </select>
+        </div>
+
+        <button class="button" type="submit"><%= submitLabel %></button>
+      </form>
+
+      <a class="back-link" href="<%= backHref %>"><%= backLabel %></a>
+    </div>
+  </div>
+</section>
