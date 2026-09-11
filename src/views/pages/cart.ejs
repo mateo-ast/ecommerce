@@ -1,0 +1,114 @@
+<section class="cart-page" aria-labelledby="cart-title">
+  <div class="cart-shell">
+    <header class="cart-header">
+      <div>
+        <p class="eyebrow">Mi compra</p>
+        <h1 id="cart-title">Carrito</h1>
+      </div>
+      <div class="cart-utility" aria-label="Buscador de productos">
+        <label class="sr-only" for="cart-search">Buscar</label>
+        <input id="cart-search" type="search" name="search" placeholder="Buscar productos" />
+      </div>
+    </header>
+
+    <div class="cart-layout">
+      <section class="cart-items" aria-label="Listado de productos del carrito">
+        <% items.forEach((item) => { %>
+          <article class="cart-item" data-price="<%= item.price %>" data-item-id="<%= item.id %>" aria-label="Producto <%= item.name %>">
+            <img src="<%= item.image %>" alt="Imagen de <%= item.name %>" />
+
+            <div class="cart-item-info">
+              <h2><%= item.name %></h2>
+              <p class="cart-item-price"><%= new Intl.NumberFormat('es-AR').format(item.price) %> puntos</p>
+            </div>
+
+            <div class="quantity-controls" aria-label="Cantidad de <%= item.name %>">
+              <button type="button" aria-label="Reducir cantidad de <%= item.name %>" class="qty-button decrement" data-action="decrement">−</button>
+              <span class="quantity-value" aria-live="polite"><%= item.quantity %></span>
+              <button type="button" aria-label="Aumentar cantidad de <%= item.name %>" class="qty-button increment" data-action="increment">+</button>
+            </div>
+
+            <p class="item-total" aria-label="Total para <%= item.name %>"><%= new Intl.NumberFormat('es-AR').format(item.price * item.quantity) %> pts</p>
+          </article>
+        <% }) %>
+      </section>
+
+      <aside class="cart-summary" aria-label="Resumen del pedido">
+        <h2>Resumen</h2>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong id="subtotal-value"><%= subtotal %> pts</strong>
+        </div>
+
+        <div class="summary-row coupon-row">
+          <label for="coupon-code">Cupón</label>
+          <input id="coupon-code" name="couponCode" type="text" value="<%= couponCode %>" placeholder="Código de descuento" aria-label="Código de descuento" />
+        </div>
+
+        <div class="summary-row discount-row">
+          <span>Descuento</span>
+          <strong id="discount-value">- <%= discount %> pts</strong>
+        </div>
+
+        <div class="summary-row total-row">
+          <span>Total</span>
+          <strong id="total-value"><%= total %> pts</strong>
+        </div>
+
+        <div class="cart-actions">
+          <a class="button primary" href="/checkout">Ir a Pagar</a>
+          <a class="button secondary" href="/">Volver al listado</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script>
+  const formatPoints = (value) => new Intl.NumberFormat('es-AR').format(value);
+
+  const updateTotals = () => {
+    const cartItems = document.querySelectorAll('.cart-item');
+    const subtotalValue = document.getElementById('subtotal-value');
+    const totalValue = document.getElementById('total-value');
+    const discountValue = document.getElementById('discount-value');
+    const couponInput = document.getElementById('coupon-code');
+    const couponCode = (couponInput?.value || '').trim().toUpperCase();
+
+    let subtotal = 0;
+    cartItems.forEach((item) => {
+      const price = Number(item.dataset.price || 0);
+      const quantity = Number(item.querySelector('.quantity-value')?.textContent || 0);
+      const itemTotal = price * quantity;
+      item.querySelector('.item-total').textContent = `${formatPoints(itemTotal)} pts`;
+      subtotal += itemTotal;
+    });
+
+    const discount = couponCode === 'SAVE10' ? Math.round(subtotal * 0.1) : 0;
+    const total = subtotal - discount;
+
+    subtotalValue.textContent = `${formatPoints(subtotal)} pts`;
+    discountValue.textContent = `- ${formatPoints(discount)} pts`;
+    totalValue.textContent = `${formatPoints(total)} pts`;
+  };
+
+  document.querySelectorAll('.qty-button').forEach((button) => {
+    button.addEventListener('click', () => {
+      const article = button.closest('.cart-item');
+      const quantityElement = article.querySelector('.quantity-value');
+      const currentValue = Number(quantityElement.textContent || 0);
+      const nextValue = button.dataset.action === 'increment' ? currentValue + 1 : Math.max(0, currentValue - 1);
+      quantityElement.textContent = String(nextValue);
+      if (nextValue === 0) {
+        article.style.opacity = '0.7';
+      } else {
+        article.style.opacity = '1';
+      }
+      updateTotals();
+    });
+  });
+
+  document.getElementById('coupon-code')?.addEventListener('input', updateTotals);
+  updateTotals();
+</script>
