@@ -1,4 +1,5 @@
 import { Request, Response } from 'express';
+import { formatPoints } from '../models/productsModel';
 
 export interface CartItem {
   id: number;
@@ -12,27 +13,25 @@ const cartItems: CartItem[] = [
   {
     id: 1,
     name: 'Auriculares Bluetooth',
-    price: 5990,
+    price: 59.99,
     quantity: 1,
     image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop'
   },
   {
     id: 2,
     name: 'Reloj Inteligente',
-    price: 12990,
+    price: 129.99,
     quantity: 2,
     image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop'
   },
   {
     id: 3,
     name: 'Altavoz Portátil',
-    price: 4590,
+    price: 45.99,
     quantity: 1,
     image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop'
   }
 ];
-
-const formatPoints = (value: number): string => new Intl.NumberFormat('es-AR').format(value);
 
 export const getCartItems = (): CartItem[] => cartItems;
 
@@ -47,7 +46,8 @@ export const cartController = (_req: Request, res: Response) => {
     subtotal: formatPoints(subtotal),
     discount: formatPoints(discount),
     total: formatPoints(total),
-    couponCode: ''
+    couponCode: '',
+    formatPoints,
   });
 };
 

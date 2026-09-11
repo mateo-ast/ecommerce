@@ -4,6 +4,7 @@ import {
     getProductById,
     getRelatedProducts,
     getSuggestedProducts,
+    formatPoints,
 } from '../models/productsModel';
 
 const productRouter = Router();
@@ -28,6 +29,7 @@ productRouter.get(['/product', '/product/:id'], (req, res) => {
         product,
         categories,
         relatedProducts: getRelatedProducts(product),
+        formatPoints,
         action: '/product',
         submitLabel: 'Agregar al carrito',
         backHref: '/',
@@ -36,7 +38,7 @@ productRouter.get(['/product', '/product/:id'], (req, res) => {
 });
 
 productRouter.post('/product', (_req, res) => {
-    res.redirect('/');
+    res.redirect('/cart');
 });
 
 export { productRouter };

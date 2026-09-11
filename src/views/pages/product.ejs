@@ -10,7 +10,7 @@
 			<div class="product-detail-copy">
 				<p class="eyebrow"><%= product.category %></p>
 				<h1 id="product-title"><%= product.name %></h1>
-				<p class="product-detail-price"><%= product.price.toFixed(2) %> Puntos</p>
+				<p class="product-detail-price"><%= formatPoints(product.price) %> Puntos</p>
 				<p class="product-detail-description"><%= product.description %></p>
 				<form action="<%= action %>" method="post">
 					<input type="hidden" name="productId" value="<%= product.id %>" />

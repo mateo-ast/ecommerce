@@ -7,6 +7,12 @@ export interface Product {
 	category: string;
 }
 
+export const formatPoints = (value: number): string =>
+	new Intl.NumberFormat('es-AR', {
+		minimumFractionDigits: 2,
+		maximumFractionDigits: 2,
+	}).format(value);
+
 export const categories = ['Audio', 'Wearables', 'Fotografía', 'Computación', 'Gaming'];
 
 const products: Product[] = [
