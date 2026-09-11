@@ -1,6 +1,11 @@
 <header>
   <nav>
-    <a href="/">Ecommerce</a>
+    <a class="brand" href="/" aria-label="Ecommerce, inicio">Ecommerce</a>
+    <form class="search-form" action="/" method="get" role="search">
+      <label class="visually-hidden" for="site-search">Buscar productos</label>
+      <input id="site-search" name="q" type="search" placeholder="Buscar productos" />
+      <button type="submit" aria-label="Buscar">Buscar</button>
+    </form>
     <a href="/login">Iniciar sesión</a>
   </nav>
 </header>

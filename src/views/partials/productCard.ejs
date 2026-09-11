@@ -67,13 +67,15 @@
 </style>
 
 <article class="product-card">
-  <img src="<%= product.image %>" alt="<%= product.name %>" class="product-card-img" />
+  <a href="/product/<%= product.id %>">
+    <img src="<%= product.images[0] %>" alt="<%= product.name %>" class="product-card-img" />
+  </a>
   <div class="product-card-body">
-    <h3 class="product-card-name"><%= product.name %></h3>
+    <h3 class="product-card-name"><a href="/product/<%= product.id %>"><%= product.name %></a></h3>
     <p class="product-card-desc"><%= product.description %></p>
     <div class="product-card-footer">
-      <span class="product-card-price">$<%= product.price.toFixed(2) %></span>
-      <button class="product-card-btn">Agregar al carrito</button>
+      <span class="product-card-price"><%= product.price.toFixed(2) %> Puntos</span>
+      <a class="product-card-btn" href="/product/<%= product.id %>">Ver detalle</a>
     </div>
   </div>
 </article>
