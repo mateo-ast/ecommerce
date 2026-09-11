@@ -64,16 +64,24 @@
   .product-card-btn:hover {
     background: #0f3460;
   }
+
+  .product-card-link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+  }
 </style>
 
-<article class="product-card">
-  <img src="<%= product.image %>" alt="<%= product.name %>" class="product-card-img" />
-  <div class="product-card-body">
-    <h3 class="product-card-name"><%= product.name %></h3>
-    <p class="product-card-desc"><%= product.description %></p>
-    <div class="product-card-footer">
-      <span class="product-card-price">$<%= product.price.toFixed(2) %></span>
-      <button class="product-card-btn">Agregar al carrito</button>
+<a href="/products/<%= product.id %>" class="product-card-link" aria-label="Ver detalles de <%= product.name %>" role="link">
+  <article class="product-card">
+    <img src="<%= product.image %>" alt="<%= product.name %>" class="product-card-img" />
+    <div class="product-card-body">
+      <h3 class="product-card-name"><%= product.name %></h3>
+      <p class="product-card-desc"><%= product.description %></p>
+      <div class="product-card-footer">
+        <span class="product-card-price">$<%= product.price.toFixed(2) %></span>
+        <button class="product-card-btn" onclick="event.preventDefault(); event.stopPropagation()">Agregar al carrito</button>
+      </div>
     </div>
-  </div>
-</article>
+  </article>
+</a>
