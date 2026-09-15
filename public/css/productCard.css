@@ -1,0 +1,111 @@
+.product-card-link {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  outline: none;
+}
+
+.product-card-link:focus-visible {
+  box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--accent);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.product-card-link:hover .product-card {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-dropdown);
+  border-color: transparent;
+}
+
+.product-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  background-color: var(--paper);
+  transition: transform var(--transition-fast);
+}
+
+.product-card-link:hover .product-card-img {
+  transform: scale(1.03);
+}
+
+.product-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1.25rem;
+}
+
+.product-card-name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.35;
+  margin: 0 0 0.5rem 0;
+}
+
+.product-card-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0 0 1.25rem 0;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.product-card-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.product-card-btn {
+  padding: 0.5rem 1rem;
+  background: var(--navy);
+  color: var(--surface);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.product-card-btn:hover {
+  background: var(--accent);
+}
+
+.product-card-btn:active {
+  transform: scale(0.97);
+}
+
+.product-card-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
