@@ -1,35 +1,29 @@
 import { Router } from 'express';
-import {
-    categories,
-    getProductById,
-    getRelatedProducts,
-    getSuggestedProducts,
-    formatPoints,
-} from '../models/productsModel';
+import { JSONProductModel } from '../models/JSONProductModel';
 
 const productRouter = Router();
+const productModel = new JSONProductModel();
 
-productRouter.get(['/product', '/product/:id'], (req, res) => {
-    const productId = req.params.id ? Number(req.params.id) : 1;
-    const product = Number.isInteger(productId) ? getProductById(productId) : undefined;
+productRouter.get(['/product/:id', '/products/:id'], async (req, res) => {
+    const productId = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+    const product = await productModel.getById(productId);
 
     if (!product) {
         return res.status(404).render('pages/product', {
             title: 'Producto no encontrado',
-            brand: 'Ecommerce',
-            product: undefined,
-            categories,
-            suggestedProducts: getSuggestedProducts(),
+            product: null,
+            suggestedProducts: await productModel.getAll(),
         });
     }
 
-    res.render('pages/product', {
+    const relatedProducts = (await productModel.getAll())
+        .filter((relatedProduct) => relatedProduct.id !== product.id)
+        .slice(0, 3);
+
+    return res.render('pages/product', {
         title: product.name,
-        brand: 'Ecommerce',
         product,
-        categories,
-        relatedProducts: getRelatedProducts(product),
-        formatPoints,
+        relatedProducts,
         action: '/product',
         submitLabel: 'Agregar al carrito',
         backHref: '/',
