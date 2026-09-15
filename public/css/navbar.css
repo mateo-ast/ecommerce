@@ -1,0 +1,143 @@
+header {
+	position: relative;
+	z-index: 100;
+	padding: 1rem clamp(1.25rem, 5vw, 5rem);
+	border-bottom: 1px solid rgba(217, 225, 231, 0.8);
+	background: rgba(255, 255, 255, 0.86);
+	backdrop-filter: blur(14px);
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 70rem;
+	margin: 0 auto;
+	gap: 1rem;
+}
+
+.nav-brand {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.nav-brand img {
+	height: 2rem;
+}
+
+.brand-link {
+	color: var(--navy);
+	font-weight: 700;
+	text-decoration: none;
+	font-size: 1.15rem;
+	letter-spacing: 0.02em;
+}
+
+.nav-link {
+	color: var(--navy);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.nav-search {
+	min-width: min(18rem, 45vw);
+}
+
+.nav-search input {
+	width: 100%;
+}
+
+.nav-actions {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.nav-cart {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 0.35rem;
+	text-decoration: none;
+	color: var(--navy);
+	font-weight: 700;
+}
+
+.nav-cart-icon {
+	flex-shrink: 0;
+}
+
+.nav-session {
+	position: relative;
+	z-index: 10;
+}
+
+.session-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	padding: 0;
+	border: 1px solid var(--line);
+	border-radius: 50%;
+	background: var(--surface);
+	color: var(--navy);
+	cursor: pointer;
+	transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.session-toggle:hover {
+	border-color: var(--accent);
+	box-shadow: 0 0 0 3px rgba(255, 102, 71, 0.12);
+}
+
+.session-dropdown {
+	position: absolute;
+	top: calc(100% + 0.5rem);
+	right: 0;
+	z-index: 20;
+	min-width: 12rem;
+	max-width: calc(100vw - clamp(1.25rem, 5vw, 5rem) * 2);
+	padding: 0.5rem;
+	border: 1px solid var(--line);
+	border-radius: 0.75rem;
+	background: var(--surface);
+	box-shadow: 0 4px 16px rgba(23, 33, 43, 0.12);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-4px);
+	transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+}
+
+.nav-session:hover .session-dropdown,
+.nav-session.is-open .session-dropdown {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.session-dropdown-item {
+	display: block;
+	padding: 0.6rem 0.85rem;
+	color: var(--navy);
+	font-weight: 600;
+	text-decoration: none;
+	border-radius: 0.5rem;
+	transition: background 120ms ease;
+}
+
+.session-dropdown-item:hover {
+	background: var(--paper);
+}
+
+@media (max-width: 640px) {
+	.nav-actions {
+		gap: 0.5rem;
+	}
+
+	.nav-search {
+		display: none;
+	}
+}

@@ -1,0 +1,80 @@
+<%
+  const safeConfirmPasswordId = typeof confirmPasswordId !== 'undefined' ? confirmPasswordId : 'register-confirm-password';
+  const safeTermsId = typeof termsId !== 'undefined' ? termsId : 'register-terms';
+  const safeTermsHref = typeof termsHref !== 'undefined' ? termsHref : '#';
+%>
+<section class="auth-section" aria-labelledby="<%= headingId %>">
+  <div class="auth-card">
+    <p class="eyebrow"><%= brand %></p>
+    <h1 id="<%= headingId %>"><%= heading %></h1>
+    <p class="intro"><%= intro %></p>
+
+    <form action="<%= action %>" method="post">
+      <div class="form-field">
+        <label for="<%= nameId %>">Nombre</label>
+        <input
+          id="<%= nameId %>"
+          name="name"
+          type="text"
+          autocomplete="name"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="<%= usernameId %>"><%= usernameLabel %></label>
+        <input
+          id="<%= usernameId %>"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="<%= passwordId %>">Contraseña</label>
+        <input
+          id="<%= passwordId %>"
+          name="password"
+          type="password"
+          autocomplete="new-password"
+          minlength="8"
+          required
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="<%= safeConfirmPasswordId %>">Confirmar contraseña</label>
+        <input
+          id="<%= safeConfirmPasswordId %>"
+          name="confirmPassword"
+          type="password"
+          autocomplete="new-password"
+          minlength="8"
+          required
+        />
+      </div>
+
+      <div class="form-check">
+        <input
+          id="<%= safeTermsId %>"
+          name="terms"
+          type="checkbox"
+          required
+        />
+        <label for="<%= safeTermsId %>">
+          Acepto los <a href="<%= safeTermsHref %>">términos y condiciones</a>
+        </label>
+      </div>
+
+      <button class="button" type="submit"><%= submitLabel %></button>
+    </form>
+
+    <p class="auth-links">
+      <a href="<%= secondaryHref %>"><%= secondaryLabel %></a>
+    </p>
+
+    <a class="back-link" href="<%= backHref %>"><%= backLabel %></a>
+  </div>
+</section>
