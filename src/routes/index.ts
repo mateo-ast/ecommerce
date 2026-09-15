@@ -1,20 +1,18 @@
 import { Router } from 'express';
-import { homeController } from '../controllers/homeController';
+import { homeRouter } from './home';
 import { loginRouter } from './login';
 import { registerRouter } from './register';
 import { productRouter } from './product';
+import { cartRouter } from './cart';
 import { checkoutRouter } from './checkout';
-import { cartController } from '../controllers/cartController';
-
 
 const router = Router();
 
-router.get('/', homeController);
-router.use(loginRouter);
-router.use(registerRouter);
-router.use(productRouter);
-router.use(checkoutRouter);
-router.get('/cart', cartController);
-
+router.use('/', homeRouter);
+router.use('/login', loginRouter);
+router.use('/register', registerRouter);
+router.use(['/products', '/product'], productRouter);
+router.use('/cart', cartRouter);
+router.use('/checkout', checkoutRouter);
 
 export { router };
