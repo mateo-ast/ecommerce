@@ -7,11 +7,19 @@
     <a href="/register" class="session-dropdown-item">Registrarse</a>
   </div>
 </div>
+
 <script>
-document.addEventListener('click', function(e) {
-  var session = document.querySelector('.nav-session');
-  if (session && !session.contains(e.target)) {
-    session.classList.remove('is-open');
+  function toggleSessionMenu(button) {
+    const container = button.closest('.nav-session');
+    const isOpen = container.classList.toggle('is-open');
+    button.setAttribute('aria-expanded', isOpen);
   }
-});
+
+  document.addEventListener('click', (e) => {
+    const session = document.querySelector('.nav-session');
+    if (session && !session.contains(e.target)) {
+      session.classList.remove('is-open');
+      session.querySelector('.session-toggle')?.setAttribute('aria-expanded', 'false');
+    }
+  });
 </script>

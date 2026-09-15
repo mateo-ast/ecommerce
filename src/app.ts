@@ -11,6 +11,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(expressLayouts);
 app.set('layout', 'layouts/main');
+app.set('layout extractStyles', true);
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.json());

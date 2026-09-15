@@ -16,8 +16,6 @@ export const getRegister = async (_req: Request, res: Response) => {
     registration: true,
     secondaryHref: '/login',
     secondaryLabel: 'Ya tengo una cuenta',
-    backHref: '/',
-    backLabel: 'Volver al inicio',
   });
 };
 

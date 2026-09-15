@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/css/products.css">
+
 <% if (product) { %>
 	<section class="product-detail-section" aria-labelledby="product-title">
 		<div class="product-detail-shell">
@@ -21,7 +23,7 @@
 	<% if (relatedProducts && relatedProducts.length) { %>
 		<section class="recommendations-section" aria-labelledby="related-title">
 			<h2 class="section-title" id="related-title">También puede interesarte</h2>
-			<div class="products-grid">
+			<div class="products-flex">
 				<% relatedProducts.forEach(relatedProduct => { %>
 					<%- include('../partials/productCard', { product: relatedProduct }) %>
 				<% }) %>
