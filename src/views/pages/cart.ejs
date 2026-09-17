@@ -95,8 +95,27 @@
     totalValue.textContent = `${formatPoints(total)} pts`;
   };
 
+  const saveCart = async () => {
+    const items = Array.from(document.querySelectorAll('.cart-item')).map((article) => ({
+      productId: article.dataset.itemId,
+      quantity: Number(article.querySelector('.quantity-value')?.textContent || 0),
+    })).filter(({ productId, quantity }) => productId && quantity > 0);
+
+    try {
+      await fetch('/cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ items }),
+      });
+    } catch (error) {
+      console.error('No se pudo guardar el carrito:', error);
+    }
+  };
+
   document.querySelectorAll('.qty-button').forEach((button) => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', async () => {
       const article = button.closest('.cart-item');
       const quantityElement = article.querySelector('.quantity-value');
       const currentValue = Number(quantityElement.textContent || 0);
@@ -108,6 +127,7 @@
         article.style.opacity = '1';
       }
       updateTotals();
+      await saveCart();
     });
   });
 
