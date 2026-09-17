@@ -12,4 +12,5 @@ export interface CartModel {
   getCart(): Promise<Cart>;
   getAll(): Promise<CartItem[]>;
   getByProductId(productId: string): Promise<CartItem | null>;
+  saveCart(cart: Cart): Promise<void>;
 }

@@ -38,6 +38,28 @@ export const getCartItems = async (): Promise<CartItem[]> => {
   return items.filter((item): item is CartItem => item !== null);
 };
 
+export const updateCartController = async (req: Request, res: Response) => {
+  const cartItems = Array.isArray(req.body?.items)
+    ? req.body.items
+        .filter(
+          (item: { productId?: string; quantity?: number }) =>
+            typeof item?.productId === 'string' && Number(item.quantity) > 0,
+        )
+        .map((item: { productId: string; quantity: number }) => ({
+          productId: item.productId,
+          quantity: Number(item.quantity),
+        }))
+    : [];
+
+  const cartModel = new JSONCartModel();
+  await cartModel.saveCart({
+    userId: 'default-user',
+    cartItems,
+  });
+
+  res.status(200).json({ success: true, items: cartItems });
+};
+
 export const cartController = async (_req: Request, res: Response) => {
   const cartItems = await getCartItems();
   const subtotal = cartItems.reduce(
