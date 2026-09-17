@@ -16,7 +16,7 @@ export const getProducts = async (req: Request, res: Response) => {
     });
   }
 
-  const relatedProducts = (await productModel.getFeatured())
+  const relatedProducts = (await productModel.getFeatured(product.categories))
     .filter((relatedProduct) => relatedProduct.id !== product.id);
 
   return res.render('pages/product', {
