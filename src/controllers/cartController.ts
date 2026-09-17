@@ -1,46 +1,45 @@
 import { Request, Response } from 'express';
+import { JSONCartModel } from '../models/JSONCartModel';
+import { JSONProductModel } from '../models/JSONProductModel';
 
 export interface CartItem {
-  id: number;
+  id: string;
   name: string;
   price: number;
   quantity: number;
   image: string;
 }
-// no tenemos productos todavía, placeholder
-const cartItems: CartItem[] = [
-  {
-    id: 1,
-    name: 'Auriculares Bluetooth',
-    price: 5990,
-    quantity: 1,
-    image:
-      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop',
-  },
-  {
-    id: 2,
-    name: 'Reloj Inteligente',
-    price: 12990,
-    quantity: 2,
-    image:
-      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop',
-  },
-  {
-    id: 3,
-    name: 'Altavoz Portátil',
-    price: 4590,
-    quantity: 1,
-    image:
-      'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop',
-  },
-];
 
 const formatPoints = (value: number): string =>
   new Intl.NumberFormat('es-AR').format(value);
 
-export const getCartItems = (): CartItem[] => cartItems;
+export const getCartItems = async (): Promise<CartItem[]> => {
+  const cartModel = new JSONCartModel();
+  const productModel = new JSONProductModel();
+  const cart = await cartModel.getCart();
 
-export const cartController = (_req: Request, res: Response) => {
+  const items = await Promise.all(
+    cart.cartItems.map(async (cartItem) => {
+      const product = await productModel.getById(cartItem.productId);
+      if (!product) {
+        return null;
+      }
+
+      return {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: cartItem.quantity,
+        image: product.image,
+      };
+    }),
+  );
+
+  return items.filter((item): item is CartItem => item !== null);
+};
+
+export const cartController = async (_req: Request, res: Response) => {
+  const cartItems = await getCartItems();
   const subtotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0,
