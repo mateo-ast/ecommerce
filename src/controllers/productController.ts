@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { JSONCartModel } from '../models/JSONCartModel';
 import { JSONProductModel } from '../models/JSONProductModel';
 
 export const getProducts = async (req: Request, res: Response) => {
@@ -30,25 +29,4 @@ export const getProducts = async (req: Request, res: Response) => {
     backHref: '/',
     backLabel: 'Volver al inicio',
   });
-};
-
-export const postProducts = async (req: Request, res: Response) => {
-  const productId = typeof req.body?.productId === 'string' ? req.body.productId : null;
-
-  if (!productId) {
-    return res.redirect('/');
-  }
-
-  const cartModel = new JSONCartModel();
-  const cart = await cartModel.getCart();
-  const existingItem = cart.cartItems.find((item) => item.productId === productId);
-
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cart.cartItems.push({ productId, quantity: 1 });
-  }
-
-  await cartModel.saveCart(cart);
-  return res.redirect('/cart');
 };

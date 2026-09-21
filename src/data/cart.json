@@ -1,4 +1,13 @@
 {
   "userId": "default-user",
-  "cartItems": []
+  "cartItems": [
+    {
+      "productId": "550e8400-e29b-41d4-a716-446655440001",
+      "quantity": 1
+    },
+    {
+      "productId": "550e8400-e29b-41d4-a716-446655440006",
+      "quantity": 1
+    }
+  ]
 }
