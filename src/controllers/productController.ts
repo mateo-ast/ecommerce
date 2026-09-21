@@ -12,13 +12,12 @@ export const getProducts = async (req: Request, res: Response) => {
     return res.status(404).render('pages/product', {
       title: 'Producto no encontrado',
       product: null,
-      suggestedProducts: await productModel.getAll(),
+      suggestedProducts: await productModel.getFeatured(),
     });
   }
 
-  const relatedProducts = (await productModel.getAll())
-    .filter((relatedProduct) => relatedProduct.id !== product.id)
-    .slice(0, 3);
+  const relatedProducts = (await productModel.getFeatured(product.categories))
+    .filter((relatedProduct) => relatedProduct.id !== product.id);
 
   return res.render('pages/product', {
     title: product.name,
