@@ -20,30 +20,43 @@ export class JSONCartModel implements CartModel {
     };
   }
 
-  private async loadCart(): Promise<Cart> {
+  private async loadCart(): Promise<Cart | null> {
     try {
       const data = await readFile(this.filePath, 'utf-8');
+      if (!data || !data.trim()) {
+        return null;
+      }
+
       const parsed = JSON.parse(data) as Partial<Cart>;
+      if (!parsed || !Array.isArray(parsed.cartItems)) {
+        return null;
+      }
+
       return this.normalizeCart(parsed);
     } catch {
-      return {
-        userId: this.defaultUserId,
-        cartItems: [],
-      };
+      return null;
     }
   }
 
-  async getCart(): Promise<Cart> {
+  async getCart(): Promise<Cart | null> {
     return this.loadCart();
   }
 
   async getAll(): Promise<CartItem[]> {
-    const cart = await this.loadCart();
-    return cart.cartItems;
+    const cart = await this.getCart();
+    return cart ? cart.cartItems : [];
+  }
+
+  async getCartItems(): Promise<CartItem[]> {
+    return this.getAll();
   }
 
   async getByProductId(productId: string): Promise<CartItem | null> {
-    const cart = await this.loadCart();
+    const cart = await this.getCart();
+    if (!cart) {
+      return null;
+    }
+
     return cart.cartItems.find((item) => item.productId === productId) || null;
   }
 

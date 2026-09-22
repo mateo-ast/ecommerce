@@ -1,7 +1,8 @@
 import { Router } from 'express';
-import { cartController, updateCartController } from '../controllers/cartController';
+import { getCart, postCart } from '../controllers/cartController';
 
 export const cartRouter = Router();
 
-cartRouter.get('/', cartController);
-cartRouter.post('/', updateCartController);
+cartRouter.get('/', getCart);
+cartRouter.post('/', postCart);
+cartRouter.post('/:id', postCart);

@@ -1,15 +1,17 @@
 <link rel="stylesheet" href="/css/productCard.css">
 
-<a href="/products/<%= product.id %>" class="product-card-link" aria-label="Ver detalles de <%= product.name %>" role="link">
-  <article class="product-card">
+<article class="product-card">
+  <a href="/products/<%= product.id %>" class="product-card-link" aria-label="Ver detalles de <%= product.name %>" role="link">
     <img src="<%= product.image %>" alt="<%= product.name %>" class="product-card-img" />
     <div class="product-card-body">
       <h3 class="product-card-name"><%= product.name %></h3>
       <p class="product-card-desc"><%= product.description %></p>
-      <div class="product-card-footer">
-        <span class="product-card-price">$<%= product.price.toFixed(2) %></span>
-        <button class="product-card-btn" onclick="event.preventDefault(); event.stopPropagation()">Agregar al carrito</button>
-      </div>
     </div>
-  </article>
-</a>
+  </a>
+  <div class="product-card-footer">
+    <span class="product-card-price">$<%= product.price.toFixed(2) %></span>
+    <form action="/cart/<%= product.id %>" method="post" class="product-card-form">
+      <button class="product-card-btn" type="submit">Agregar al carrito</button>
+    </form>
+  </div>
+</article>
