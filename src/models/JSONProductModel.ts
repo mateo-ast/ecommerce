@@ -18,6 +18,17 @@ export class JSONProductModel implements ProductModel {
     return this.loadProducts();
   }
 
+  async getFeatured(categories?: string[]): Promise<Product[]> {
+    const products = await this.loadProducts();
+    if (!categories?.length) {
+      return products;
+    }
+
+    return products.filter((product) =>
+      product.categories.some((category) => categories.includes(category)),
+    );
+  }
+
   async getById(id: string): Promise<Product | null> {
     const products = await this.loadProducts();
     return products.find((p) => p.id === id) || null;

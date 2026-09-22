@@ -1,46 +1,41 @@
 import { Request, Response } from 'express';
-
-export interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
-// no tenemos productos todavía, placeholder
-const cartItems: CartItem[] = [
-  {
-    id: 1,
-    name: 'Auriculares Bluetooth',
-    price: 5990,
-    quantity: 1,
-    image:
-      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop',
-  },
-  {
-    id: 2,
-    name: 'Reloj Inteligente',
-    price: 12990,
-    quantity: 2,
-    image:
-      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop',
-  },
-  {
-    id: 3,
-    name: 'Altavoz Portátil',
-    price: 4590,
-    quantity: 1,
-    image:
-      'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop',
-  },
-];
+import { JSONCartModel } from '../models/JSONCartModel';
+import { JSONProductModel } from '../models/JSONProductModel';
 
 const formatPoints = (value: number): string =>
   new Intl.NumberFormat('es-AR').format(value);
 
-export const getCartItems = (): CartItem[] => cartItems;
+const buildCartViewItems = async () => {
+  const cartModel = new JSONCartModel();
+  const productModel = new JSONProductModel();
+  const cart = await cartModel.getCart();
 
-export const cartController = (_req: Request, res: Response) => {
+  if (!cart) {
+    return [];
+  }
+
+  const items = await Promise.all(
+    cart.cartItems.map(async (cartItem) => {
+      const product = await productModel.getById(cartItem.productId);
+      if (!product) {
+        return null;
+      }
+
+      return {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: cartItem.quantity,
+        image: product.image,
+      };
+    }),
+  );
+
+  return items.filter((item): item is NonNullable<typeof item> => item !== null);
+};
+
+export const getCart = async (_req: Request, res: Response) => {
+  const cartItems = await buildCartViewItems();
   const subtotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0,
@@ -56,4 +51,54 @@ export const cartController = (_req: Request, res: Response) => {
     total: formatPoints(total),
     couponCode: '',
   });
+};
+
+export const postCart = async (req: Request, res: Response) => {
+  const productId = typeof req.params?.id === 'string' ? req.params.id : null;
+  const bodyItems = Array.isArray(req.body?.items)
+    ? req.body.items.filter(
+        (item: { productId?: string; quantity?: number }) =>
+          typeof item?.productId === 'string' && Number(item.quantity) > 0,
+      )
+    : [];
+
+  if (productId) {
+    const cartModel = new JSONCartModel();
+    const cart: {
+      userId: string;
+      cartItems: { productId: string; quantity: number }[];
+    } =
+      (await cartModel.getCart()) ?? {
+        userId: req.body?.userId ?? 'default-user',
+        cartItems: [],
+      };
+
+    const existingItem = cart.cartItems.find((item) => item.productId === productId);
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.cartItems.push({ productId, quantity: 1 });
+    }
+
+    await cartModel.saveCart(cart);
+    return res.redirect('/cart');
+  }
+
+  const cartModel = new JSONCartModel();
+  const cartItems = bodyItems.map((item: { productId: string; quantity: number }) => ({
+    productId: item.productId,
+    quantity: Number(item.quantity),
+  }));
+
+  await cartModel.saveCart({
+    userId: req.body?.userId ?? 'default-user',
+    cartItems,
+  });
+
+  if (bodyItems.length) {
+    return res.status(200).json({ success: true, items: cartItems });
+  }
+
+  return res.redirect('/cart');
 };
