@@ -1,1 +1,12 @@
-<h1>Home</h1>
+<link rel="stylesheet" href="/css/home.css">
+
+<%- include('../partials/hero') %>
+
+<section class="products-section" id="productos">
+  <h2 class="section-title">Productos Destacados</h2>
+  <div class="products-grid">
+    <% products.forEach(product => { %>
+      <%- include('../partials/productCard', { product }) %>
+    <% }) %>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/css/products.css">
+
+<% if (product) { %>
+	<section class="product-detail-section" aria-labelledby="product-title">
+		<div class="product-detail-shell">
+			<div class="product-gallery">
+				<img src="<%= product.image %>" alt="<%= product.name %>" class="product-detail-image product-detail-image-main" />
+			</div>
+
+			<div class="product-detail-copy">
+				<h1 id="product-title"><%= product.name %></h1>
+				<p class="product-detail-price">$<%= product.price.toFixed(2) %></p>
+				<p class="product-detail-description"><%= product.description %></p>
+				<form action="<%= action %>" method="post">
+					<input type="hidden" name="productId" value="<%= product.id %>" />
+					<button class="button" type="submit"><%= submitLabel %></button>
+				</form>
+				<a class="back-link" href="<%= backHref %>"><%= backLabel %></a>
+			</div>
+		</div>
+	</section>
+
+	<% if (relatedProducts && relatedProducts.length) { %>
+		<section class="recommendations-section" aria-labelledby="related-title">
+			<h2 class="section-title" id="related-title">También puede interesarte</h2>
+			<div class="products-flex">
+				<% relatedProducts.forEach(relatedProduct => { %>
+					<%- include('../partials/productCard', { product: relatedProduct }) %>
+				<% }) %>
+			</div>
+		</section>
+	<% } %>
+<% } else { %>
+	<section class="product-error-section" aria-labelledby="product-error-title">
+		<p class="eyebrow">Error 404</p>
+		<h1 id="product-error-title">No encontramos ese producto</h1>
+		<p class="intro">El enlace puede estar desactualizado o el producto ya no estar disponible.</p>
+		<a class="button product-error-button" href="/">Volver al inicio</a>
+	</section>
+
+	<section class="recommendations-section" aria-labelledby="suggested-title">
+		<h2 class="section-title" id="suggested-title">Quizás también te interese</h2>
+		<div class="products-grid">
+			<% suggestedProducts.forEach(suggestedProduct => { %>
+				<%- include('../partials/productCard', { product: suggestedProduct }) %>
+			<% }) %>
+		</div>
+	</section>
+<% } %>

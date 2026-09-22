@@ -1,0 +1,120 @@
+.auth-section {
+	display: grid;
+	min-height: 38rem;
+	place-items: center;
+	background:
+		radial-gradient(circle at 12% 15%, rgba(255, 102, 71, 0.18) 0, transparent 28%),
+		linear-gradient(135deg, #eef2f5 0%, #e2ebf0 100%);
+}
+
+a {
+	color: var(--accent-dark);
+	font-weight: 700;
+}
+
+.auth-card {
+	width: min(100%, 70rem);
+	padding: clamp(1.5rem, 4vw, 2.5rem);
+	border: 1px solid rgba(217, 225, 231, 0.9);
+	border-radius: 1.25rem;
+	background: rgba(255, 255, 255, 0.92);
+	box-shadow: 0 1.5rem 3rem rgba(23, 33, 43, 0.12);
+}
+
+.eyebrow {
+	margin: 0 0 0.5rem;
+	color: var(--accent);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+h1 {
+	margin: 0;
+	font-size: clamp(2rem, 5vw, 2.75rem);
+	letter-spacing: -0.04em;
+	line-height: 1.1;
+}
+
+.intro {
+	margin: 0.75rem 0 2rem;
+	color: var(--muted);
+}
+
+.form-field {
+	margin-bottom: 1.25rem;
+}
+
+label {
+	display: block;
+	margin-bottom: 0.4rem;
+	font-weight: 700;
+}
+
+input {
+	width: 100%;
+	padding: 0.85rem 1rem;
+	border: 1px solid #aeb9b8;
+	border-radius: 0.7rem;
+	color: var(--ink);
+	background: #fff;
+	font: inherit;
+	transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+input:focus {
+	border-color: var(--accent);
+	box-shadow: 0 0 0 4px rgba(255, 102, 71, 0.14);
+	outline: none;
+}
+
+.form-check {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.6rem;
+	margin-bottom: 1.25rem;
+}
+
+.form-check input {
+	width: auto;
+	margin-top: 0.35rem;
+}
+
+.form-check label {
+	margin-bottom: 0;
+}
+
+a:focus-visible,
+button:focus-visible {
+	outline: 3px solid #e3a641;
+	outline-offset: 3px;
+}
+
+.button {
+	display: inline-block;
+	width: 100%;
+	padding: 0.85rem 1.25rem;
+	border: 0;
+	border-radius: 0.7rem;
+	color: #fff;
+	background: var(--accent);
+	font: inherit;
+	font-weight: 700;
+	text-decoration: none;
+	cursor: pointer;
+	transition: background 160ms ease, transform 160ms ease;
+}
+
+.button:hover {
+	background: var(--accent-dark);
+	transform: translateY(-1px);
+}
+
+.auth-links {
+	margin: 1.75rem 0 0.75rem;
+}
+
+.back-link {
+	font-size: 0.95rem;
+}
