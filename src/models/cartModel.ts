@@ -9,8 +9,9 @@ export interface Cart {
 }
 
 export interface CartModel {
-  getCart(): Promise<Cart>;
+  getCart(): Promise<Cart | null>;
   getAll(): Promise<CartItem[]>;
+  getCartItems(): Promise<CartItem[]>;
   getByProductId(productId: string): Promise<CartItem | null>;
   saveCart(cart: Cart): Promise<void>;
 }

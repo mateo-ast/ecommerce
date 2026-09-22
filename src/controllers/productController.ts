@@ -23,13 +23,9 @@ export const getProducts = async (req: Request, res: Response) => {
     title: product.name,
     product,
     relatedProducts,
-    action: '/product',
+    action: `/cart/${product.id}`,
     submitLabel: 'Agregar al carrito',
     backHref: '/',
     backLabel: 'Volver al inicio',
   });
-};
-
-export const postProducts = async (_req: Request, res: Response) => {
-  res.redirect('/cart');
 };
