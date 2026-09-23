@@ -1,83 +1,108 @@
-.error-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 72px 20px 80px;
+.error-section {
+  display: grid;
+  place-items: center;
+  min-height: 38rem;
+  padding: 4rem clamp(1.25rem, 5vw, 5rem);
+  background:
+    radial-gradient(circle at 12% 15%, rgba(255, 102, 71, 0.18) 0, transparent 28%),
+    linear-gradient(135deg, #eef2f5 0%, #e2ebf0 100%);
 }
 
-.error-copy {
-  max-width: 680px;
-  margin: 0 auto 64px;
+.error-card {
+  width: min(100%, 28rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid rgba(217, 225, 231, 0.9);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1.5rem 3rem rgba(23, 33, 43, 0.12);
   text-align: center;
 }
 
-.error-code {
-  margin: 0 0 12px;
+.error-card .eyebrow {
+  margin: 0 0 1.5rem;
   color: var(--accent);
-  font-size: 0.9rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.error-copy h1 {
+.error-code {
   margin: 0;
+  color: var(--accent);
+  font-size: clamp(4rem, 14vw, 7rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+}
+
+.error-card h1 {
+  margin: 1.5rem 0 0;
   color: var(--navy);
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 1.05;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.1;
 }
 
-.error-message {
-  max-width: 560px;
-  margin: 24px auto 30px;
+.error-card .intro {
+  margin: 0.75rem 0 2rem;
   color: var(--text-muted);
-  font-size: 1.05rem;
 }
 
-.error-home-link {
+.error-card .button {
   display: inline-block;
-  padding: 12px 22px;
-  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.25rem;
+  border-radius: 0.7rem;
   color: #fff;
   background: var(--accent);
   font-weight: 700;
   text-decoration: none;
-  transition: transform var(--transition-fast), background var(--transition-fast);
+  transition: background 160ms ease, transform 160ms ease;
 }
 
-.error-home-link:hover {
+.error-card .button:hover {
   background: #1d4ed8;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+}
+
+.error-card .button:focus-visible {
+  outline: 3px solid #e3a641;
+  outline-offset: 3px;
+}
+
+.error-recommendations {
+  width: min(100%, 75rem);
+  margin-top: 4rem;
 }
 
 .error-recommendations h2 {
-  margin: 0 0 28px;
+  margin: 0 0 1.75rem;
   color: var(--navy);
   font-size: 1.7rem;
   text-align: center;
 }
 
-.error-products-grid {
+.error-recommendations-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 1.875rem;
 }
 
 @media (max-width: 1024px) {
-  .error-products-grid {
+  .error-recommendations-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
-  .error-page {
-    padding-top: 48px;
+  .error-section {
+    padding-top: 3rem;
   }
 
-  .error-copy {
-    margin-bottom: 48px;
+  .error-recommendations {
+    margin-top: 3rem;
   }
 
-  .error-products-grid {
+  .error-recommendations-grid {
     grid-template-columns: 1fr;
   }
 }

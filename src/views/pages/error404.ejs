@@ -1,17 +1,18 @@
 <link rel="stylesheet" href="/css/error404.css">
 
-<section class="error-page" aria-labelledby="error-title">
-  <div class="error-copy">
-    <p class="error-code">Error 404</p>
+<section class="error-section" aria-labelledby="error-title">
+  <div class="error-card">
+    <p class="eyebrow">Ecommerce</p>
+    <p class="error-code">404</p>
     <h1 id="error-title">No encontramos esa página</h1>
-    <p class="error-message">La dirección que ingresaste no coincide con ningún recurso. Puedes volver al inicio o descubrir algo nuevo en nuestra selección.</p>
-    <a class="error-home-link" href="/">Volver al inicio</a>
+    <p class="intro">La dirección que ingresaste no coincide con ningún recurso. Puedes volver al inicio o descubrir algo nuevo en nuestra selección.</p>
+    <a class="button" href="/">Volver al inicio</a>
   </div>
 
   <% if (products.length) { %>
     <section class="error-recommendations" aria-labelledby="recommendations-title">
       <h2 id="recommendations-title">Productos para continuar</h2>
-      <div class="error-products-grid">
+      <div class="error-recommendations-grid">
         <% products.forEach(product => { %>
           <%- include('../partials/productCard', { product }) %>
         <% }) %>
