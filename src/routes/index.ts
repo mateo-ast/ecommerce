@@ -6,6 +6,7 @@ import { productRouter } from './product';
 import { cartRouter } from './cart';
 import { checkoutRouter } from './checkout';
 import { JSONProductModel } from '../models/JSONProductModel';
+import { errorHandler } from '../middleware/errors';
 
 const router = Router();
 
@@ -25,5 +26,7 @@ router.use(async (_req, res) => {
     products: products.slice(0, 3),
   });
 });
+
+router.use(errorHandler);
 
 export { router };

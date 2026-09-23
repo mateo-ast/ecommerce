@@ -19,17 +19,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/', router);
 
-app.use((error: unknown, _req: express.Request, res: express.Response, next: express.NextFunction) => {
-  if (res.headersSent) {
-    next(error);
-    return;
-  }
-
-  res.status(500).render('pages/500', {
-    title: 'Error interno',
-  });
-});
-
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
