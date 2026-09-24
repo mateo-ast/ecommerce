@@ -46,5 +46,517 @@
     "image": "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?w=400&h=300&fit=crop",
     "description": "Teclado mecánico RGB para gaming",
     "categories": ["gaming", "accesorios", "productividad"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440007",
+    "name": "Ratón Ergonómico Inalámbrico",
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=300&fit=crop",
+    "description": "Ratón óptico de alta precisión con agarre ergonómico",
+    "categories": ["accesorios", "productividad", "oficina"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440008",
+    "name": "Monitor Curvo 27\"",
+    "price": 279.99,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop",
+    "description": "Monitor curvo Full HD 144Hz para juegos y diseño",
+    "categories": ["gaming", "pantallas", "productividad"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440009",
+    "name": "Lámpara de Escritorio LED",
+    "price": 29.99,
+    "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=400&h=300&fit=crop",
+    "description": "Lámpara articulada con brillo regulable y puerto USB",
+    "categories": ["hogar", "oficina", "iluminacion"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440010",
+    "name": "Micrófono USB de Condensador",
+    "price": 89.99,
+    "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=300&fit=crop",
+    "description": "Micrófono profesional cardioide para streaming y podcasts",
+    "categories": ["audio", "creadores", "gaming"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440011",
+    "name": "Mochila para Portátil",
+    "price": 42.5,
+    "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop",
+    "description": "Mochila impermeable con compartimento acolchado de 15.6\"",
+    "categories": ["accesorios", "viajes", "oficina"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440012",
+    "name": "Disco SSD Externo 1TB",
+    "price": 109.99,
+    "image": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=400&h=300&fit=crop",
+    "description": "Unidad sólida portátil USB-C de alta velocidad de lectura",
+    "categories": ["almacenamiento", "tecnologia", "productividad"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440013",
+    "name": "Webcam Full HD 1080p",
+    "price": 54.99,
+    "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop",
+    "description": "Cámara web con micrófono dual y tapa de privacidad integrada",
+    "categories": ["video", "oficina", "comunicacion"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440014",
+    "name": "Base de Carga Inalámbrica 3 en 1",
+    "price": 39.99,
+    "image": "https://images.unsplash.com/photo-1622445268045-8f64f40d3478?w=400&h=300&fit=crop",
+    "description": "Estación de carga rápida para móvil, reloj y auriculares",
+    "categories": ["accesorios", "energia", "tecnologia"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440015",
+    "name": "Soporte Ajustable para Portátil",
+    "price": 24.99,
+    "image": "https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=400&h=300&fit=crop",
+    "description": "Soporte de aluminio plegable con disipación pasiva de calor",
+    "categories": ["accesorios", "oficina", "ergonomia"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440016",
+    "name": "Lector de Libros Electrónicos",
+    "price": 119.99,
+    "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=300&fit=crop",
+    "description": "eReader con pantalla antirreflejos de tinta electrónica y luz cálida",
+    "categories": ["lectura", "tecnologia", "lifestyle"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440017",
+    "name": "Hub USB-C Multipuerto",
+    "price": 35.99,
+    "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=300&fit=crop",
+    "description": "Adaptador 7 en 1 con HDMI 4K, lector SD y puertos USB 3.0",
+    "categories": ["accesorios", "conectividad", "productividad"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440018",
+    "name": "Tira LED Inteligente RGB",
+    "price": 22.99,
+    "image": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=400&h=300&fit=crop",
+    "description": "Tira de 5 metros compatible con WiFi y asistentes de voz",
+    "categories": ["hogar", "iluminacion", "smart-home"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440019",
+    "name": "Batería Portátil Power Bank 20000mAh",
+    "price": 32.99,
+    "image": "https://images.unsplash.com/photo-1609592426505-4c07920aa0c7?w=400&h=300&fit=crop",
+    "description": "Batería externa con carga rápida bidireccional y pantalla digital",
+    "categories": ["energia", "accesorios", "viajes"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440020",
+    "name": "Gafas de Realidad Virtual",
+    "price": 449.99,
+    "image": "https://images.unsplash.com/photo-1622979135225-d2ba269bc1df?w=400&h=300&fit=crop",
+    "description": "Visor autónomo de realidad virtual con mandos hápticos",
+    "categories": ["gaming", "realidad-virtual", "tecnologia"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440021",
+    "name": "Mando Inalámbrico Pro",
+    "price": 64.99,
+    "image": "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=400&h=300&fit=crop",
+    "description": "Controlador ergonómico con gatillos adaptativos y batería de larga duración",
+    "categories": ["gaming", "accesorios", "consolas"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440022",
+    "name": "Alfombrilla Gaming XXL con Iluminación",
+    "price": 27.99,
+    "image": "https://images.unsplash.com/photo-1616440347437-b1c73416efc2?w=400&h=300&fit=crop",
+    "description": "Superficie de microfibra de baja fricción con bordes RGB personalizables",
+    "categories": ["gaming", "accesorios", "oficina"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440023",
+    "name": "Proyector Portátil Mini",
+    "price": 189.99,
+    "image": "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=400&h=300&fit=crop",
+    "description": "Proyector compacto con resolución nativa 1080p y altavoces integrados",
+    "categories": ["video", "cine-en-casa", "tecnologia"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440024",
+    "name": "Barra de Sonido para TV",
+    "price": 149.99,
+    "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=400&h=300&fit=crop",
+    "description": "Sistema de audio 2.1 canales con subwoofer inalámbrico y Bluetooth 5.2",
+    "categories": ["audio", "hogar", "cine-en-casa"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440025",
+    "name": "Router WiFi 6 Gigabit",
+    "price": 84.99,
+    "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=300&fit=crop",
+    "description": "Enrutador de doble banda con tecnología OFDMA para baja latencia",
+    "categories": ["conectividad", "redes", "hogar"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440026",
+    "name": "Estabilizador Gimbal para Smartphone",
+    "price": 109.99,
+    "image": "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?w=400&h=300&fit=crop",
+    "description": "Gimbal de 3 ejes con seguimiento inteligente de rostros y objetos",
+    "categories": ["fotografia", "video", "creadores"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440027",
+    "name": "Enchufe Inteligente WiFi (Pack de 2)",
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&h=300&fit=crop",
+    "description": "Control remoto de energía y temporizador mediante app móvil",
+    "categories": ["hogar", "smart-home", "energia"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440028",
+    "name": "Lápiz Óptico Activo",
+    "price": 38.99,
+    "image": "https://images.unsplash.com/photo-1585336261026-7f2871f3ce37?w=400&h=300&fit=crop",
+    "description": "Stylus de alta sensibilidad a la presión y rechazo de palma para tablets",
+    "categories": ["tablets", "productividad", "diseno"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440029",
+    "name": "Tarjeta MicroSD 256GB High Endurance",
+    "price": 28.5,
+    "image": "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=400&h=300&fit=crop",
+    "description": "Tarjeta de memoria clase U3 V30 apta para grabación de vídeo en 4K",
+    "categories": ["almacenamiento", "fotografia", "accesorios"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440030",
+    "name": "Aro de Luz LED con Trípode",
+    "price": 31.99,
+    "image": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=400&h=300&fit=crop",
+    "description": "Luz anular de 10\" regulable con soporte para móvil y disparador remoto",
+    "categories": ["iluminacion", "creadores", "video"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440031",
+    "name": "Cámara de Seguridad WiFi Interior",
+    "price": 34.99,
+    "image": "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?w=400&h=300&fit=crop",
+    "description": "Cámara de vigilancia 360 grados con visión nocturna y detección humana",
+    "categories": ["seguridad", "hogar", "smart-home"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440032",
+    "name": "Teclado Bluetooth Ultradelgado",
+    "price": 36.99,
+    "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400&h=300&fit=crop",
+    "description": "Teclado inalámbrico multidispositivo con teclas de perfil bajo",
+    "categories": ["accesorios", "productividad", "oficina"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440033",
+    "name": "Disipador Térmico con Ventiladores para Portátil",
+    "price": 26.99,
+    "image": "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=400&h=300&fit=crop",
+    "description": "Base refrigeradora con 5 ventiladores silenciosos e inclinación ajustable",
+    "categories": ["gaming", "accesorios", "ordenadores"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440034",
+    "name": "Termómetro e Higrómetro Inteligente",
+    "price": 16.99,
+    "image": "https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75?w=400&h=300&fit=crop",
+    "description": "Sensor de temperatura y humedad ambiental con sincronización móvil",
+    "categories": ["hogar", "smart-home", "climatizacion"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440035",
+    "name": "Auriculares Deportivos de Conducción Ósea",
+    "price": 74.99,
+    "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=300&fit=crop",
+    "description": "Diseño de oído abierto resistente al sudor IP67 para entrenamientos al aire libre",
+    "categories": ["audio", "deportes", "wearables"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440036",
+    "name": "Brazo Articulado para Monitor",
+    "price": 46.5,
+    "image": "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=300&fit=crop",
+    "description": "Soporte de pistón de gas con montaje VESA y gestión integrada de cables",
+    "categories": ["oficina", "ergonomia", "accesorios"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440037",
+    "name": "Cargador Rápido GaN 65W",
+    "price": 33.99,
+    "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=300&fit=crop",
+    "description": "Adaptador de corriente compacto con tecnología nitruro de galio y 3 puertos",
+    "categories": ["energia", "accesorios", "tecnologia"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440038",
+    "name": "Cerradura Inteligente Biométrica",
+    "price": 139.99,
+    "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&h=300&fit=crop",
+    "description": "Cerradura electrónica con lector de huella dactilar, teclado táctil y clave temporal",
+    "categories": ["seguridad", "hogar", "smart-home"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440039",
+    "name": "Tableta Digitalizadora para Dibujo",
+    "price": 69.99,
+    "image": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&h=300&fit=crop",
+    "description": "Tableta gráfica con lápiz sin batería y 8 teclas de acceso directo",
+    "categories": ["diseno", "creadores", "productividad"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440040",
+    "name": "Báscula Digital Inteligente",
+    "price": 29.99,
+    "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop",
+    "description": "Báscula de bioimpedancia con análisis de composición corporal y sincronización Bluetooth",
+    "categories": ["salud", "wearables", "hogar"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440041",
+    "name": "Dron Plegable con Cámara 4K",
+    "price": 389.99,
+    "image": "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=400&h=300&fit=crop",
+    "description": "Dron ultraligero con estabilización en 3 ejes y GPS de retorno inteligente",
+    "categories": ["drones", "fotografia", "tecnologia"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440042",
+    "name": "Localizador Bluetooth Antipérdida (Pack 4)",
+    "price": 34.99,
+    "image": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&h=300&fit=crop",
+    "description": "Rastreador compacto con altavoz integrado para llaves, carteras o equipaje",
+    "categories": ["accesorios", "viajes", "seguridad"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440043",
+    "name": "Purificador de Aire Inteligente HEPA",
+    "price": 129.99,
+    "image": "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&h=300&fit=crop",
+    "description": "Filtra el 99.97% de partículas finas con control mediante app móvil",
+    "categories": ["hogar", "salud", "smart-home"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440044",
+    "name": "Robot Aspirador y Fregasuelos",
+    "price": 249.99,
+    "image": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&h=300&fit=crop",
+    "description": "Navegación láser LiDAR, mapeo multinivel y potente succión de 4000Pa",
+    "categories": ["hogar", "smart-home", "electrodomesticos"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440045",
+    "name": "Cámara de Acción 4K Sumergible",
+    "price": 169.99,
+    "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=300&fit=crop",
+    "description": "Cámara deportiva acuática con pantalla táctil doble y estabilizador giroscópico",
+    "categories": ["fotografia", "deportes", "video"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440046",
+    "name": "Silla Ergonómica de Oficina",
+    "price": 199.99,
+    "image": "https://images.unsplash.com/photo-1580481077195-c3a821a58875?w=400&h=300&fit=crop",
+    "description": "Silla transpirable con soporte lumbar regulable y reposabrazos 3D",
+    "categories": ["oficina", "ergonomia", "muebles"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440047",
+    "name": "Consola Portátil Retro",
+    "price": 79.99,
+    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop",
+    "description": "Pantalla IPS de 3.5\" con soporte para emuladores y batería recargable",
+    "categories": ["gaming", "consolas", "retro"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440048",
+    "name": "Capturadora de Vídeo HDMI 4K",
+    "price": 59.99,
+    "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop",
+    "description": "Dispositivo USB 3.0 de latencia ultrabaja para streaming y grabación de gameplay",
+    "categories": ["gaming", "creadores", "video"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440049",
+    "name": "Foco Inteligente WiFi RGB (Pack 4)",
+    "price": 29.99,
+    "image": "https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=400&h=300&fit=crop",
+    "description": "Bombillas LED regulables de 16 millones de colores compatibles con voz",
+    "categories": ["hogar", "smart-home", "iluminacion"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440050",
+    "name": "Mando para Smartphone Tipo Telescópico",
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=400&h=300&fit=crop",
+    "description": "Mando con conexión directa USB-C para juegos en la nube y móviles",
+    "categories": ["gaming", "smartphones", "accesorios"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440051",
+    "name": "Humidificador Ultrasónico Aromaterapia",
+    "price": 27.99,
+    "image": "https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?w=400&h=300&fit=crop",
+    "description": "Difusor de aceites esenciales silencioso de 500ml con luz ambiental",
+    "categories": ["hogar", "bienestar", "salud"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440052",
+    "name": "Plataforma de Carga Solar Portátil 28W",
+    "price": 62.99,
+    "image": "https://images.unsplash.com/photo-1508873696983-2df57046475b?w=400&h=300&fit=crop",
+    "description": "Panel solar plegable e impermeable para acampadas y actividades al aire libre",
+    "categories": ["energia", "camping", "viajes"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440053",
+    "name": "Termo Inteligente con Pantalla de Temperatura",
+    "price": 19.99,
+    "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=400&h=300&fit=crop",
+    "description": "Botella de acero inoxidable con sensor táctil LED para medir la temperatura del líquido",
+    "categories": ["hogar", "lifestyle", "accesorios"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440054",
+    "name": "Tarjeta Gráfica Externa Enclosure (eGPU)",
+    "price": 299.99,
+    "image": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=300&fit=crop",
+    "description": "Caja Thunderbolt para tarjeta gráfica con fuente de alimentación integrada de 650W",
+    "categories": ["gaming", "ordenadores", "productividad"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440055",
+    "name": "Regleta Inteligente con Protección contra Sobretensiones",
+    "price": 31.99,
+    "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=300&fit=crop",
+    "description": "4 tomas independientes controlables por WiFi y 4 puertos USB de carga rápida",
+    "categories": ["smart-home", "energia", "oficina"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440056",
+    "name": "Trípode de Fibra de Carbono para Fotografía",
+    "price": 139.99,
+    "image": "https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?w=400&h=300&fit=crop",
+    "description": "Trípode ultraligero con rótula de bola 360 grados y función monopié",
+    "categories": ["fotografia", "accesorios", "viajes"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440057",
+    "name": "Caja de Esterilización UV y Cargador Qi",
+    "price": 25.99,
+    "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=300&fit=crop",
+    "description": "Desinfección ultravioleta para móviles y accesorios mientras cargan inalámbricamente",
+    "categories": ["salud", "higiene", "tecnologia"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440058",
+    "name": "Timbre con Videocámara HD WiFi",
+    "price": 79.99,
+    "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=400&h=300&fit=crop",
+    "description": "Vídeo portero inalámbrico con audio bidireccional y detección de movimiento PIR",
+    "categories": ["seguridad", "hogar", "smart-home"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440059",
+    "name": "Impresora Térmica Portátil de Etiquetas",
+    "price": 37.99,
+    "image": "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=400&h=300&fit=crop",
+    "description": "Etiquetadora de bolsillo sin tinta con conexión Bluetooth para oficina y hogar",
+    "categories": ["oficina", "productividad", "impresion"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440060",
+    "name": "Pistola de Masaje Muscular",
+    "price": 59.99,
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop",
+    "description": "Dispositivo de terapia de percusión con 6 cabezales intercambiables y 30 velocidades",
+    "categories": ["salud", "deportes", "bienestar"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440061",
+    "name": "Panel Acústico Insonorizante (Pack 12)",
+    "price": 32.5,
+    "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=400&h=300&fit=crop",
+    "description": "Espuma fonoabsorbente de alta densidad para estudios de grabación y streaming",
+    "categories": ["audio", "creadores", "hogar"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440062",
+    "name": "Gafas de Filtro de Luz Azul para Pantallas",
+    "price": 21.99,
+    "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=300&fit=crop",
+    "description": "Lentes protectoras antirreflejos para aliviar la fatiga visual informática",
+    "categories": ["salud", "oficina", "accesorios"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440063",
+    "name": "Adaptador Inalámbrico CarPlay / Android Auto",
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=400&h=300&fit=crop",
+    "description": "Dongle USB plug & play para conectar el móvil al coche sin necesidad de cables",
+    "categories": ["automovil", "conectividad", "accesorios"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440064",
+    "name": "Compresor de Aire Portátil para Neumáticos",
+    "price": 43.99,
+    "image": "https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=400&h=300&fit=crop",
+    "description": "Bomba de inflado digital recargable con parada automática a presión prefijada",
+    "categories": ["automovil", "herramientas", "viajes"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440065",
+    "name": "Batería Magnética Inalámbrica (MagSafe)",
+    "price": 36.99,
+    "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=400&h=300&fit=crop",
+    "description": "Power bank ultrafina de fijación magnética con soporte plegable",
+    "categories": ["energia", "smartphones", "accesorios"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440066",
+    "name": "Funda Sumergible Universal para Smartphone",
+    "price": 12.99,
+    "image": "https://images.unsplash.com/photo-1546776310-eef45dd6d63c?w=400&h=300&fit=crop",
+    "description": "Bolsa impermeable con certificación IPX8 para buceo y deportes acuáticos",
+    "categories": ["deportes", "accesorios", "smartphones"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440067",
+    "name": "Kit de Iluminación Clave para Streaming (Key Light)",
+    "price": 94.99,
+    "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=300&fit=crop",
+    "description": "Panel LED difuso con soporte de mesa ajustable y control por software",
+    "categories": ["creadores", "iluminacion", "video"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440068",
+    "name": "Docking Station Triple Monitor 14 en 1",
+    "price": 119.99,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=300&fit=crop",
+    "description": "Estación de acoplamiento universal con doble DisplayPort, HDMI y carga de 100W",
+    "categories": ["productividad", "oficina", "conectividad"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440069",
+    "name": "Pluma de Impresión 3D con Filamentos",
+    "price": 41.5,
+    "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&h=300&fit=crop",
+    "description": "Bolígrafo de modelado 3D de baja temperatura con filamentos PLA de colores",
+    "categories": ["creatividad", "educacion", "diseno"]
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440070",
+    "name": "Altavoz Inteligente con Asistente de Voz",
+    "price": 49.99,
+    "image": "https://images.unsplash.com/photo-1543512214-318c7553f230?w=400&h=300&fit=crop",
+    "description": "Altavoz compacto con audio envolvente y control por voz para el hogar conectado",
+    "categories": ["audio", "smart-home", "hogar"]
   }
 ]
