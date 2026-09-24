@@ -1,0 +1,8 @@
+<section class="products-section" id="productos">
+  <h2 class="section-title">Los 10 productos más pedidos</h2>
+  <div class="products-grid">
+    <% mostOrderedProducts.forEach(product => { %>
+      <%- include('../partials/productCard', { product }) %>
+    <% }) %>
+  </div>
+</section>

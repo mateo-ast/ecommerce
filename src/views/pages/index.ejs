@@ -2,8 +2,10 @@
 
 <%- include('../partials/hero') %>
 
+<%- include('../partials/mostOrderedProducts.ejs', { mostOrderedProducts }) %>
+
 <section class="products-section" id="productos">
-  <h2 class="section-title">Productos Destacados</h2>
+  <h2 class="section-title">Todos los productos</h2>
   <div class="products-grid">
     <% products.forEach(product => { %>
       <%- include('../partials/productCard', { product }) %>
