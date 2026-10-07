@@ -1,0 +1,70 @@
+.error-section {
+  display: grid;
+  place-items: center;
+  min-height: 38rem;
+  padding: 4rem clamp(1.25rem, 5vw, 5rem);
+  background:
+    radial-gradient(circle at 12% 15%, rgba(255, 102, 71, 0.18) 0, transparent 28%),
+    linear-gradient(135deg, #eef2f5 0%, #e2ebf0 100%);
+}
+
+.error-card {
+  width: min(100%, 28rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid rgba(217, 225, 231, 0.9);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1.5rem 3rem rgba(23, 33, 43, 0.12);
+  text-align: center;
+}
+
+.error-card .eyebrow {
+  margin: 0 0 1.5rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.error-code {
+  margin: 0;
+  color: var(--accent);
+  font-size: clamp(4rem, 14vw, 7rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+}
+
+.error-card h1 {
+  margin: 1.5rem 0 0;
+  color: var(--navy);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.1;
+}
+
+.error-card .intro {
+  margin: 0.75rem 0 2rem;
+  color: var(--text-muted);
+}
+
+.error-card .button {
+  display: inline-block;
+  padding: 0.85rem 1.25rem;
+  border-radius: 0.7rem;
+  color: #fff;
+  background: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.error-card .button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.error-card .button:focus-visible {
+  outline: 3px solid #e3a641;
+  outline-offset: 3px;
+}

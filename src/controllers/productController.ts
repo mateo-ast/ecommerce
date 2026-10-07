@@ -16,8 +16,12 @@ export const getProducts = async (req: Request, res: Response) => {
     });
   }
 
-  const relatedProducts = (await productModel.getFeatured(product.categories))
-    .filter((relatedProduct) => relatedProduct.id !== product.id);
+  const relatedProducts = product.categories?.length
+    ? (await productModel.getFeatured(product.categories))
+        .filter((relatedProduct) => relatedProduct.id !== product.id)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 4)
+    : [];
 
   return res.render('pages/product', {
     title: product.name,

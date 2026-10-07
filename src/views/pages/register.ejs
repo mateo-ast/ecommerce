@@ -1,4 +1,125 @@
 <link rel="stylesheet" href="/css/auth.css">
+<script src="/js/registerValidation.js"></script>
+
+<%
+  const safeConfirmPasswordId = typeof confirmPasswordId !== 'undefined' ? confirmPasswordId : 'register-confirm-password';
+  const safeTermsId = typeof termsId !== 'undefined' ? termsId : 'register-terms';
+  const safeTermsHref = typeof termsHref !== 'undefined' ? termsHref : '#';
+%>
+<section class="auth-section" aria-labelledby="<%= headingId %>">
+  <div class="auth-card">
+    <p class="eyebrow"><%= brand %></p>
+    <h1 id="<%= headingId %>"><%= heading %></h1>
+    <p class="intro"><%= intro %></p>
+
+    <% if (errors && errors.length) { %>
+      <div class="form-errors" role="alert" aria-live="polite">
+        <p>Revisá los siguientes datos:</p>
+        <ul>
+          <% errors.forEach(error => { %>
+            <li><%= error %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+
+    <form
+      id="register-form"
+      action="<%= action %>"
+      method="post"
+      data-site-name="<%= brand %>"
+      onsubmit="return handleRegistrationSubmit(this)"
+    >
+      <div class="form-field">
+        <label for="<%= nameId %>">Nombre</label>
+        <input
+          id="<%= nameId %>"
+          name="name"
+          type="text"
+          autocomplete="name"
+          value="<%= values.name || '' %>"
+          required
+          oninput="handleRegistrationInput(this)"
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="<%= lastNameId %>">Apellido</label>
+        <input
+          id="<%= lastNameId %>"
+          name="lastName"
+          type="text"
+          autocomplete="family-name"
+          value="<%= values.lastName || '' %>"
+          required
+          oninput="handleRegistrationInput(this)"
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="<%= usernameId %>"><%= usernameLabel %></label>
+        <input
+          id="<%= usernameId %>"
+          name="email"
+          type="email"
+          autocomplete="email"
+          value="<%= values.email || '' %>"
+          required
+          oninput="handleRegistrationInput(this)"
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="<%= passwordId %>">Contraseña</label>
+        <input
+          id="<%= passwordId %>"
+          name="password"
+          type="password"
+          autocomplete="new-password"
+          minlength="8"
+          required
+          oninput="handleRegistrationInput(this)"
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="<%= safeConfirmPasswordId %>">Confirmar contraseña</label>
+        <input
+          id="<%= safeConfirmPasswordId %>"
+          name="confirmPassword"
+          type="password"
+          autocomplete="new-password"
+          minlength="8"
+          required
+          oninput="handleRegistrationInput(this)"
+        />
+      </div>
+
+      <div class="form-check">
+        <input
+          id="<%= safeTermsId %>"
+          name="terms"
+          type="checkbox"
+          required
+        />
+        <label for="<%= safeTermsId %>">
+          Acepto los <a href="<%= safeTermsHref %>">términos y condiciones</a>
+        </label>
+      </div>
+
+      <button
+        class="button"
+        type="submit"
+        onclick="return handleRegistrationSubmit(this.form)"
+      ><%= submitLabel %></button>
+    </form>
+
+    <p class="auth-links">
+      <a href="<%= secondaryHref %>"><%= secondaryLabel %></a>
+    </p>
+  </div>
+</section>
+<link rel="stylesheet" href="/css/auth.css">
 
 <%
   const safeConfirmPasswordId = typeof confirmPasswordId !== 'undefined' ? confirmPasswordId : 'register-confirm-password';

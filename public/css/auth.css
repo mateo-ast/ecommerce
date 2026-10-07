@@ -123,3 +123,22 @@
   display: inline-block;
   font-size: 0.95rem;
 }
+
+.form-errors {
+  margin-bottom: 1.25rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid #c94c3b;
+  border-radius: 0.7rem;
+  color: #8a2417;
+  background: #fff1ef;
+}
+
+.form-errors p {
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+}
+
+.form-errors ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}

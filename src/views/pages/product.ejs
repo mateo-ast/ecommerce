@@ -20,16 +20,18 @@
 		</div>
 	</section>
 
-	<% if (relatedProducts && relatedProducts.length) { %>
-		<section class="recommendations-section" aria-labelledby="related-title">
-			<h2 class="section-title" id="related-title">También puede interesarte</h2>
+	<section class="recommendations-section" aria-labelledby="related-title">
+		<h2 class="section-title" id="related-title">Productos relacionados</h2>
+		<% if (relatedProducts && relatedProducts.length) { %>
 			<div class="products-flex">
 				<% relatedProducts.forEach(relatedProduct => { %>
 					<%- include('../partials/productCard', { product: relatedProduct }) %>
 				<% }) %>
 			</div>
-		</section>
-	<% } %>
+		<% } else { %>
+			<p class="related-products-empty">No hay productos relacionados disponibles.</p>
+		<% } %>
+	</section>
 <% } else { %>
 	<section class="product-error-section" aria-labelledby="product-error-title">
 		<p class="eyebrow">Error 404</p>

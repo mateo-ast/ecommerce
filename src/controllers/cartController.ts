@@ -1,21 +1,15 @@
 import { Request, Response } from 'express';
-import { JSONCartModel } from '../models/JSONCartModel';
 import { JSONProductModel } from '../models/JSONProductModel';
+import { CartItem } from '../models/cartModel';
 
 const formatPoints = (value: number): string =>
   new Intl.NumberFormat('es-AR').format(value);
 
-const buildCartViewItems = async () => {
-  const cartModel = new JSONCartModel();
+const buildCartViewItems = async (cart: CartItem[]) => {
   const productModel = new JSONProductModel();
-  const cart = await cartModel.getCart();
-
-  if (!cart) {
-    return [];
-  }
 
   const items = await Promise.all(
-    cart.cartItems.map(async (cartItem) => {
+    cart.map(async (cartItem) => {
       const product = await productModel.getById(cartItem.productId);
       if (!product) {
         return null;
@@ -35,7 +29,7 @@ const buildCartViewItems = async () => {
 };
 
 export const getCart = async (_req: Request, res: Response) => {
-  const cartItems = await buildCartViewItems();
+  const cartItems = await buildCartViewItems(_req.session.cart || []);
   const subtotal = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
     0,
@@ -53,52 +47,27 @@ export const getCart = async (_req: Request, res: Response) => {
   });
 };
 
-export const postCart = async (req: Request, res: Response) => {
-  const productId = typeof req.params?.id === 'string' ? req.params.id : null;
-  const bodyItems = Array.isArray(req.body?.items)
-    ? req.body.items.filter(
-        (item: { productId?: string; quantity?: number }) =>
-          typeof item?.productId === 'string' && Number(item.quantity) > 0,
-      )
-    : [];
+export const updateCartItem = async (req: Request, res: Response) => {
+  const productId = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+  const action = req.body?.action === 'decrement' ? 'decrement' : 'increment';
+  const cart = req.session.cart || [];
+  const item = cart.find((cartItem) => cartItem.productId === productId);
 
-  if (productId) {
-    const cartModel = new JSONCartModel();
-    const cart: {
-      userId: string;
-      cartItems: { productId: string; quantity: number }[];
-    } =
-      (await cartModel.getCart()) ?? {
-        userId: req.body?.userId ?? 'default-user',
-        cartItems: [],
-      };
+  if (item) {
+    item.quantity += action === 'increment' ? 1 : -1;
+    req.session.cart = cart.filter((cartItem) => cartItem.quantity > 0);
+  } else if (action === 'increment') {
+    req.session.cart = [...cart, { productId, quantity: 1 }];
+  }
 
-    const existingItem = cart.cartItems.find((item) => item.productId === productId);
-
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      cart.cartItems.push({ productId, quantity: 1 });
-    }
-
-    await cartModel.saveCart(cart);
+  if (req.accepts('html')) {
     return res.redirect('/cart');
   }
 
-  const cartModel = new JSONCartModel();
-  const cartItems = bodyItems.map((item: { productId: string; quantity: number }) => ({
-    productId: item.productId,
-    quantity: Number(item.quantity),
-  }));
+  return res.json({ success: true, cart: req.session.cart });
+};
 
-  await cartModel.saveCart({
-    userId: req.body?.userId ?? 'default-user',
-    cartItems,
-  });
-
-  if (bodyItems.length) {
-    return res.status(200).json({ success: true, items: cartItems });
-  }
-
+export const clearCart = (req: Request, res: Response) => {
+  req.session.cart = [];
   return res.redirect('/cart');
 };
