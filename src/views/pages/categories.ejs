@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/products.css">
+<link rel="stylesheet" href="/css/categories.css">
+
+<section class="category-section" aria-labelledby="category-title">
+  <a class="back-link" href="/categories">&larr; Todas las categorías</a>
+
+  <header class="category-header">
+    <p class="eyebrow">Categoría</p>
+    <h1 id="category-title"><%= categoryName %></h1>
+    <% if (products.length) { %>
+      <p class="category-count">
+        <%= products.length %> <%= products.length === 1 ? 'producto' : 'productos' %>
+      </p>
+    <% } %>
+  </header>
+
+  <% if (products.length) { %>
+    <div class="products-grid">
+      <% products.forEach(product => { %>
+        <%- include('../partials/productCard', { product }) %>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <div class="category-empty">
+      <p class="intro">
+        Todavía no hay productos en <strong><%= categoryName %></strong>.
+        Probá con otra categoría o mirá algunos de nuestros productos.
+      </p>
+      <a class="button category-empty-button" href="/categories">Ver todas las categorías</a>
+    </div>
+
+    <% if (suggestedProducts.length) { %>
+      <h2 class="section-title">Quizás te interese</h2>
+      <div class="products-grid">
+        <% suggestedProducts.forEach(product => { %>
+          <%- include('../partials/productCard', { product }) %>
+        <% }) %>
+      </div>
+    <% } %>
+  <% } %>
+</section>

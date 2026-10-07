@@ -5,6 +5,7 @@ import { registerRouter } from './register';
 import { productRouter } from './product';
 import { cartRouter } from './cart';
 import { checkoutRouter } from './checkout';
+import { categoriesRouter } from './categories';
 import { JSONProductModel } from '../models/JSONProductModel';
 import { errorHandler } from '../middleware/errors';
 
@@ -16,6 +17,7 @@ router.use('/register', registerRouter);
 router.use(['/products', '/product'], productRouter);
 router.use('/cart', cartRouter);
 router.use('/checkout', checkoutRouter);
+router.use('/categories', categoriesRouter);
 
 router.use(async (_req, res) => {
   const productModel = new JSONProductModel();

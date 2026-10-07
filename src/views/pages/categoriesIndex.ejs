@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="/css/home.css">
+<link rel="stylesheet" href="/css/products.css">
+<link rel="stylesheet" href="/css/categories.css">
+
+<section class="category-section" aria-labelledby="categories-title">
+  <div class="category-header">
+    <p class="eyebrow">Catálogo</p>
+    <h1 id="categories-title">Explorar por categorías</h1>
+    <p class="category-count">
+      <%= categories.length %> categorías disponibles
+    </p>
+  </div>
+
+  <label class="category-filter" for="category-filter-input">
+    <span class="visually-hidden">Filtrar categorías</span>
+    <input
+      id="category-filter-input"
+      type="search"
+      placeholder="Filtrar categorías..."
+      autocomplete="off"
+    >
+  </label>
+
+  <div class="categories-grid" id="categories-grid">
+    <% categories.forEach(category => { %>
+      <a
+        class="category-card"
+        href="/categories/<%= encodeURIComponent(category.slug) %>"
+        data-name="<%= category.name %>"
+      >
+        <span class="category-card-name"><%= category.name %></span>
+        <span class="category-card-count">
+          <%= category.count %> <%= category.count === 1 ? 'producto' : 'productos' %>
+        </span>
+      </a>
+    <% }) %>
+  </div>
+
+  <p class="category-filter-empty" id="category-filter-empty" hidden>
+    No encontramos categorías con ese nombre.
+  </p>
+</section>
+
+<script>
+  (function () {
+    var input = document.getElementById('category-filter-input');
+    var cards = document.querySelectorAll('.category-card');
+    var emptyMessage = document.getElementById('category-filter-empty');
+
+    // Ignora mayúsculas y tildes: "tecno" encuentra "Tecnología".
+    function normalize(text) {
+      return text
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+    }
+
+    input.addEventListener('input', function () {
+      var query = normalize(input.value);
+      var visible = 0;
+
+      cards.forEach(function (card) {
+        var match = normalize(card.dataset.name).indexOf(query) !== -1;
+        card.hidden = !match;
+        if (match) visible++;
+      });
+
+      emptyMessage.hidden = visible !== 0;
+    });
+  })();
+</script>

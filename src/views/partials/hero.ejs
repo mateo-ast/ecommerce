@@ -61,6 +61,24 @@
     box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
   }
 
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero-btn-secondary {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    box-shadow: none;
+  }
+
+  .hero-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+  }
+
   @media (max-width: 768px) {
     .hero {
       height: 400px;
@@ -80,6 +98,9 @@
   <div class="hero-content">
     <h1>Tecnología de Última Generación</h1>
     <p>Explora nuestro catálogo de laptops, smartphones, audífonos y más. Las mejores marcas al mejor precio.</p>
-    <a href="#productos" class="hero-btn">Explorar Tecnología</a>
+    <div class="hero-actions">
+      <a href="#productos" class="hero-btn">Explorar Tecnología</a>
+      <a href="/categories" class="hero-btn hero-btn-secondary">Explorar por categorías</a>
+    </div>
   </div>
 </section>
