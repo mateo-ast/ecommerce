@@ -23,6 +23,14 @@ app.use(
   }),
 );
 
+app.use((req, res, next) => {
+  res.locals.cartItemCount = (req.session.cart || []).reduce(
+    (total, item) => total + item.quantity,
+    0,
+  );
+  next();
+});
+
 app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
